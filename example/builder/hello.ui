@@ -12,7 +12,7 @@
 the BSD style license, and the LGPL (Lesser GNU Public License).
 The idea is that if you can use Go (and Gtk) in a project, you should also be able to use go-gtk.</property>
     <property name="comments" translatable="yes">example program for go-gtk</property>
-    <property name="website">https://github.com/mattn/go-gtk</property>
+    <property name="website">https://github.com/johnbartholomew/go-gtk</property>
     <property name="authors">Yasuhiro Matsumoto</property>
     <signal name="response" handler="gtk_widget_hide" swapped="no"/>
     <child internal-child="vbox">
@@ -42,7 +42,7 @@ The idea is that if you can use Go (and Gtk) in a project, you should also be ab
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../../data/mattn-logo.png</property>
+    <property name="pixbuf">../../data/johnbartholomew-logo.png</property>
   </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
@@ -122,10 +122,10 @@ The idea is that if you can use Go (and Gtk) in a project, you should also be ab
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="has_tooltip">True</property>
-            <property name="tooltip_markup">&lt;b&gt;http://mattn.kaoriya.net/&lt;/b&gt;</property>
+            <property name="tooltip_markup">&lt;b&gt;http://johnbartholomew.kaoriya.net/&lt;/b&gt;</property>
             <property name="image">image1</property>
             <property name="relief">none</property>
-            <property name="uri">http://mattn.kaoriya.net/</property>
+            <property name="uri">http://johnbartholomew.kaoriya.net/</property>
           </object>
           <packing>
             <property name="expand">True</property>

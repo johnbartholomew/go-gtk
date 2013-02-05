@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/johnbartholomew/go-gtk/gdkpixbuf"
+	"github.com/johnbartholomew/go-gtk/glib"
+	"github.com/johnbartholomew/go-gtk/gtk"
 	"os"
-	"github.com/mattn/go-gtk/gtk"	
-	"github.com/mattn/go-gtk/glib"
-	"github.com/mattn/go-gtk/gdkpixbuf"
 	"strconv"
 )
 

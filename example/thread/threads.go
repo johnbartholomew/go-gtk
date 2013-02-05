@@ -1,8 +1,8 @@
 package main
 
-import "github.com/mattn/go-gtk/glib"
-import "github.com/mattn/go-gtk/gdk"
-import "github.com/mattn/go-gtk/gtk"
+import "github.com/johnbartholomew/go-gtk/glib"
+import "github.com/johnbartholomew/go-gtk/gdk"
+import "github.com/johnbartholomew/go-gtk/gtk"
 import "strconv"
 import "time"
 import "runtime"

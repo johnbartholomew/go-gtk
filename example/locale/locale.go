@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mattn/go-gtk/gtk"
-import "github.com/mattn/go-gtk/glib"
+import "github.com/johnbartholomew/go-gtk/gtk"
+import "github.com/johnbartholomew/go-gtk/glib"
 import "fmt"
 
 func main() {
