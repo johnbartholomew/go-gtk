@@ -5,6 +5,7 @@ all:
 	cd gdkpixbuf && go get -x .
 	cd gtk && go get -x .
 	cd gtksourceview && go get -x .
+	cd gtkgl && go get -x .
 
 install:
 	cd pango && go install -x
@@ -13,6 +14,7 @@ install:
 	cd gdkpixbuf && go install -x
 	cd gtk && go install -x
 	cd gtksourceview && go install -x
+	cd gtkgl && go install -x .
 
 fmt:
 	cd pango && go fmt .
@@ -21,3 +23,4 @@ fmt:
 	cd gdkpixbuf && go fmt .
 	cd gtk && go fmt .
 	cd gtksourceview && go fmt .
+	cd gtkgl && go fmt -x .
