@@ -63,6 +63,7 @@ func FONT_SELECTION_DIALOG(p *FontSelectionDialog) *C.GtkFontSelectionDialog {
 }
 func LABEL(p *Label) *C.GtkLabel                           { return C.toGLabel(p.GWidget) }
 func BUTTON(p *Button) *C.GtkButton                        { return C.toGButton(p.GWidget) }
+func MISC(p *Misc) *C.GtkMisc                              { return C.toGMisc(p.GWidget) }
 func SPIN_BUTTON(p *SpinButton) *C.GtkSpinButton           { return C.toGSpinButton(p.GWidget) }
 func RADIO_BUTTON(p *RadioButton) *C.GtkRadioButton        { return C.toGRadioButton(p.GWidget) }
 func FONT_BUTTON(p *FontButton) *C.GtkFontButton           { return C.toGFontButton(p.GWidget) }
@@ -1819,7 +1820,7 @@ type ILabel interface {
 	SetLabel(label string)
 }
 type Label struct {
-	Widget
+	Misc
 }
 
 func (Label) isILabel() {}
@@ -1827,7 +1828,7 @@ func (Label) isILabel() {}
 func NewLabel(label string) *Label {
 	ptr := C.CString(label)
 	defer cfree(ptr)
-	return &Label{Widget{C.gtk_label_new(gstring(ptr))}}
+	return &Label{Misc{Widget{C.gtk_label_new(gstring(ptr))}}}
 }
 func (v *Label) SetText(label string) {
 	ptr := C.CString(label)
@@ -1885,7 +1886,7 @@ func (v *Label) GetText() string {
 func LabelWithMnemonic(label string) *Label {
 	ptr := C.CString(label)
 	defer cfree(ptr)
-	return &Label{Widget{C.gtk_label_new_with_mnemonic(gstring(ptr))}}
+	return &Label{Misc{Widget{C.gtk_label_new_with_mnemonic(gstring(ptr))}}}
 }
 func (v *Label) SelectRegion(start_offset int, end_offset int) {
 	C.gtk_label_select_region(LABEL(v), gint(start_offset), gint(end_offset))
@@ -6979,8 +6980,8 @@ func (v *Expander) SetLabelWidget(label_widget ILabel) {
 	C.gtk_expander_set_label_widget(EXPANDER(v), ToNative(label_widget))
 }
 func (v *Expander) GetLabelWidget() ILabel {
-	return &Label{Widget{
-		C.gtk_expander_get_label_widget(EXPANDER(v))}}
+	return &Label{Misc{Widget{
+		C.gtk_expander_get_label_widget(EXPANDER(v))}}}
 }
 
 // gtk_expander_set_label_fill //since 2.22
@@ -7038,8 +7039,8 @@ func (v *Frame) GetLabelAlign() (xalign, yalign float64) {
 	return float64(xalign_), float64(yalign_)
 }
 func (v *Frame) GetLabelWidget() ILabel {
-	return &Label{Widget{
-		C.gtk_frame_get_label_widget(FRAME(v))}}
+	return &Label{Misc{Widget{
+		C.gtk_frame_get_label_widget(FRAME(v))}}}
 }
 func (v *Frame) GetShadowType() ShadowType {
 	return ShadowType(C.gtk_frame_get_shadow_type(FRAME(v)))
@@ -7992,7 +7993,14 @@ func (v *Item) Toggle() {
 // GtkMisc
 //-----------------------------------------------------------------------
 
+type Misc struct {
+	Widget
+}
+
 // gtk_misc_set_alignment
+func (v *Misc) SetAlignment(xalign, yalign float64) {
+	C.gtk_misc_set_alignment(MISC(v), C.gfloat(xalign), C.gfloat(yalign))
+}
 // gtk_misc_set_padding
 // gtk_misc_get_alignment
 // gtk_misc_get_padding
