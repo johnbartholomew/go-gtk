@@ -8732,8 +8732,20 @@ func (v *Widget) ModifyFontEasy(desc string) {
 	C.gtk_widget_modify_font(v.GWidget, C.pango_font_description_from_string(pdesc))
 }
 
+func (v *Widget) ModifyFG(state StateType, color *gdk.Color) {
+	C.gtk_widget_modify_fg(v.GWidget, C.GtkStateType(state), (*C.GdkColor)(unsafe.Pointer(&color.GColor)))
+}
+
 func (v *Widget) ModifyBG(state StateType, color *gdk.Color) {
 	C.gtk_widget_modify_bg(v.GWidget, C.GtkStateType(state), (*C.GdkColor)(unsafe.Pointer(&color.GColor)))
+}
+
+func (v *Widget) ModifyText(state StateType, color *gdk.Color) {
+	C.gtk_widget_modify_text(v.GWidget, C.GtkStateType(state), (*C.GdkColor)(unsafe.Pointer(&color.GColor)))
+}
+
+func (v *Widget) ModifyBase(state StateType, color *gdk.Color) {
+	C.gtk_widget_modify_base(v.GWidget, C.GtkStateType(state), (*C.GdkColor)(unsafe.Pointer(&color.GColor)))
 }
 
 //-----------------------------------------------------------------------
